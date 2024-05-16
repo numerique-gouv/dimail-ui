@@ -1,0 +1,71 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+.io-ox-tasks-edit {
+    // baseline adjustments
+    padding-top: 16px;
+    padding-bottom: 16px;
+    min-height: 100%;
+
+    // hide collapsed and details on startup
+    .collapsible, .task-edit-details { display: none; }
+
+    &.expanded {
+        .collapsible { display: block; }
+        &.details-expanded .task-edit-details { display: block; }
+    }
+}
+
+.io-ox-tasks-edit-main {
+
+    .progress-field {
+        text-align: center;
+    }
+
+    .note-field {
+        resize: vertical;
+        padding: 10px;
+        min-height: 120px;
+    }
+
+    .btn.btn-link {
+        padding-left: 0;
+        margin-bottom: 9px;
+    }
+
+    .input-group.has-picker input {
+        height: 1.875rem;
+    }
+
+    // add temporary higher z index to fix the focus outline (Bug 41266)
+    .input-group {
+        .progress-field:focus,
+        button[data-action='minus']:focus,
+        button[data-action='plus']:focus { z-index: 3; }
+    }
+}
+
+.io-ox-tasks-edit-main.expanded {
+    // hide collapsed and details on startup
+    .collapsible { display: block; }
+    &.details-expanded .task-edit-details { display: block; }
+}

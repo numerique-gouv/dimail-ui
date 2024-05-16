@@ -1,0 +1,101 @@
+{
+    "tests": [
+        {
+            "id": "to",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"]
+        },
+        {
+            "id": "body",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"]
+        },
+        {
+            "id": "hasflag",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"]
+        },
+        {
+            "id": "subject",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"]
+        },
+        {
+            "id": "envelope",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"],
+            "headers": ["from", "to"],
+            "parts": ["all", "domain", "localpart", "detail", "user"]
+        },
+        {
+            "id": "anyrecipient",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"]
+        },
+        {
+            "id": "true",
+            "comparisons": []
+        },
+        {
+            "id": "from",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"]
+        },
+        {
+            "id": "date",
+            "comparisons": ["is", "ge", "le", "not is", "not ge", "not le"]
+        },
+        {
+            "id": "header",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"]
+        },
+        {
+            "id": "size",
+            "comparisons": ["over", "under", "not over", "not under"]
+        },
+        {
+            "id": "not",
+            "comparisons": []
+        },
+        {
+            "id": "allof",
+            "comparisons": []
+        },
+        {
+            "id": "mailinglist",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"]
+        },
+        {
+            "id": "currentdate",
+            "comparisons": ["is", "ge", "le", "not is", "not ge", "not le"]
+        },
+        {
+            "id": "address",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"],
+            "headers": ["cc", "bcc", "resent-from", "resent-to", "sender", "from", "to"],
+            "parts": ["all", "domain", "localpart", "detail", "user"]
+        },
+        {
+            "id": "exists",
+            "comparisons": []
+        },
+        {
+            "id": "anyof",
+            "comparisons": []
+        },
+        {
+            "id": "cc",
+            "comparisons": ["regex", "is", "contains", "matches", "startswith", "endswith", "not regex", "not is", "not contains", "not matches", "not startswith", "not endswith"]
+        }
+    ],
+    "actioncmds": [
+        { "id": "stop" },
+        { "id": "reject" },
+        { "id": "discard" },
+        { "id": "vacation" },
+        { "id": "notify" },
+        { "id": "setflags" },
+        { "id": "addflags" },
+        { "id": "redirect" },
+        { "id": "removeflags" },
+        { "id": "move" },
+        { "id": "copy" },
+        { "id": "keep" }
+    ],
+    "options":{
+        "allowNestedTests": true
+    }
+}

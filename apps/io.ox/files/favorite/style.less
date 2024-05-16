@@ -1,0 +1,74 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+.list-view-control:not(.upside-down).toolbar-top-visible .list-view.myfavorites-list { top: 80px; }
+
+.myfavorites-list-control .secondary-toolbar { top: 40px; }
+
+.smartphone .myfavorites-list-control [data-ref="io.ox/files/favorite/back"] {
+    display:block;
+    position: absolute;
+    left: -12px;
+    top: 2px;
+    font-size: 15px;
+    &:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f053";
+        margin-right: 3px;
+    }
+}
+.myfavorites-list {
+
+    &.visible-selection.has-focus .list-item.selected a,
+    &.visible-selection.has-focus .list-item.selected .type i:not(.gray) { color: white; }
+
+    .list-item-content {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+
+        .displayname { .ellipsis(); }
+
+        .breadcrumb-view {
+            overflow: hidden;
+            a { color: #767676; }
+        }
+
+        .list-item-column.column-2,
+        .list-item-column.column-3 {
+            width: 50%;
+            padding:0;
+            text-align: left;
+        }
+
+        .list-item-column.column-2 {
+            width: 30%;
+        }
+
+        .list-item-column.type { width: 20px; }
+    }
+}
+
+/*
+commented out (for now): this just breaks normal dropdowns
+.myfavorites-list-control .classic-toolbar-container .classic-toolbar { overflow: hidden; }
+*/

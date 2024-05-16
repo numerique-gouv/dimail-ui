@@ -1,0 +1,86 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+@media print{
+    // none or one mail selected
+    // avoid absolute positioning; <body> needs to be the scrollpane otherwise we get no multipage print outs
+    .atb, .rightside.selection-one, .rightside.selection-empty { position: static; }
+
+    .window-body {
+        left: 0 !important;
+    }
+
+    #io-ox-screens,
+    .abs.window-content {
+        top: 0 !important;
+    }
+
+    // hide everything we don't need
+    #io-ox-appcontrol, #io-ox-topbar, .window-sidepanel, .categories-toolbar-container, .classic-toolbar-container,
+    .leftside.selection-one, .leftside.selection-empty, .back-navigation, ul.actions, .toggle-all, .contact-picture, .unread-toggle, .show-all-recipients,
+    .io-ox-alert {
+        display: none !important;
+    }
+    .rightside.selection-empty .thread-view-list, .rightside.selection-one .thread-view-list, .rightside.selection-one, .rightside.selection-empty { padding: 0 !important; overflow: visible !important; }
+    .rightside.selection-empty .thread-view.list-view .list-item, .rightside.selection-one .thread-view.list-view .list-item { margin-bottom: 0; border-bottom: 1px solid #ddd; }
+    .rightside.selection-empty .detail-view-header, .rightside.selection-one .detail-view-header {
+        padding-left: 16px !important;
+        .recipients {
+            .io-ox-label, .person-link, .delimiter { display: inline-block !important; }
+        }
+    }
+
+    // multiple mails selected
+    .rightside.selection-multiple {
+        display: none !important;
+    }
+
+    .leftside.selection-multiple {
+        position: static !important;
+        width: 100% !important;
+        border-right: none !important;
+    }
+
+    .leftside.selection-multiple .toolbar, .leftside.selection-multiple .list-item, .leftside.selection-multiple .list-item-checkmark {
+        display: none !important;
+    }
+
+    .leftside.selection-multiple .list-item.selected {
+        display: block !important;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .io-ox-mail-window {
+        .abs, .window-container, .window-body { position: static; }
+    }
+
+    .io-ox-contacts-window,
+    .io-ox-tasks-window {
+        .leftside {
+            display: none !important;
+        }
+        .rightside {
+            left: 0 !important;
+        }
+    }
+}

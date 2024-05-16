@@ -1,0 +1,215 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+.window-container {
+
+    /**
+     *  GENERAL
+     */
+    .io-ox-find {
+
+        // adjust tokenfield (8 = outer padding, 1 = border)
+        @placeholder-padding: @default-padding - 8 - 1;
+        @action-color: #767676;
+
+        padding: 4px 8px;
+        line-height: 0;
+        z-index: 10;
+
+        .search-box {
+
+            ::-ms-clear {
+                display: none;
+                width : 0;
+                height: 0;
+            }
+
+            .action.io-ox-busy {
+                position: absolute;
+                line-height: 22px;
+
+                &:before { font-size: 16px; }
+            }
+
+            .form-group {
+                margin-bottom: 0;
+            }
+
+            .tokenfield-placeholder {
+                padding-left: @placeholder-padding;
+            }
+
+            .tokenfield {
+                // adjust tokenfield (3 = placeholder padding)
+                padding-left: @placeholder-padding - 3;
+                padding-right: 9px;
+                // 30px but works with text zoom
+                min-height: 2.14285714em;
+
+                .token {
+
+                    .token-type,
+                    .token-detail,
+                    .fa-caret-down { color: rgba(0, 0, 0, 0.75); }
+
+                    .close {
+                        color: rgba(0, 0, 0, 0.55);
+                        &:hover {
+                            color: rgba(0, 0, 0, 0.75);
+                        }
+                    }
+
+                    .token-name {
+                        color: rgb(85, 85, 85);
+                        font-weight: 500;
+                    }
+
+                    .dropdown {
+                        [data-toggle="dropdown"] { outline: 0; }
+
+                        .fa-caret-down {
+                            margin-left: 4px;
+                            margin-right: 8px;
+                        }
+                        // left is set by js
+                        .dropdown-menu {
+                            position: fixed;
+                        }
+                    }
+                }
+            }
+
+            .search-field {
+                padding-right: 2.34375rem;
+            }
+
+            .action {
+                pointer-events: auto;
+                color: @action-color;
+                padding-right: 23px;
+                height: 100%;
+
+                svg {
+                    vertical-align: middle;
+                    margin-top: -2px;
+                }
+
+                &:hover { color: @link-color; }
+                &:focus {
+                    outline: 0;
+                    background: @selected-background;
+                    color: @selected-color;
+                    border-radius: 0 3px 3px 0;
+                }
+            }
+        }
+
+        .search-box-filter {
+            padding-left: 8px;
+
+            & > .classic-toolbar {
+                // disable
+                .dropdown .conflicting, .dropdown.conflicting a {
+                    color: #a4a4a4;
+                    pointer-events: none;
+                }
+
+                li {
+                    height: 31px;
+                }
+            }
+        }
+    }
+
+    /**
+     *  MODE: NOT ACTIVE
+     */
+    .io-ox-find {
+
+        .search-box .action {
+            &.action-find   { display: inline-block; }
+            &.action-cancel { display: none; }
+        }
+        .search-box-filter { display: none; }
+        flex: 0 1 auto;
+        height: auto;
+        min-height: 2.5rem;
+    }
+
+    /**
+     *  MODE: ACTIVE
+     */
+    &.io-ox-find-active {
+
+        //top: managed by backbone view
+        &:not(.mail-categories-visible) .window-body { transition: top .2s; }
+
+        .folder-tree {
+            margin-top: 2.5rem;
+        }
+
+        .breadcrumb-ellipsis {
+            display: none;
+        }
+
+        .io-ox-find {
+            //top: managed by backbone view
+            position: absolute;
+            width: 100vw;
+            display: flex;
+
+            .search-box {
+                min-width: 550px;
+
+                // switch visibility
+                .action {
+                    &.action-show   { display: none; }
+                    &.action-cancel { display: inline-block; }
+                }
+            }
+
+            .search-box-filter {
+                display: block;
+                .classic-toolbar {
+                    align-items: center;
+                    height: 100%;
+                    width: auto;
+                    position: relative !important;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+#io-ox-windowmanager .io-ox-windowmanager-sticky-panel{
+    top: 0;
+    // needed to make transition work correctly when search is expanded
+    max-height: 100%;
+}
+
+#io-ox-windowmanager.io-ox-find-active .io-ox-windowmanager-sticky-panel{
+    transition: max-height .2s, top .2s;
+    top: 40px;
+    // prevents views from sticking out the bottom
+    max-height: calc(~"100% - 40px");
+}

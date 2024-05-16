@@ -1,0 +1,265 @@
+{
+  "data": {
+    "facets": [
+      {
+        "id": "global",
+        "style": "simple",
+        "name": "te",
+        "filter": {
+          "fields": [
+            "global"
+          ],
+          "queries": [
+            "te"
+          ]
+        },
+        "flags": [
+
+        ]
+      },
+      {
+        "id": "subject",
+        "style": "simple",
+        "item": {
+          "name": "te",
+          "detail": "in subject"
+        },
+        "filter": {
+          "fields": [
+            "subject"
+          ],
+          "queries": [
+            "te"
+          ]
+        },
+        "flags": [
+
+        ]
+      },
+      {
+        "id": "mail_text",
+        "style": "simple",
+        "item": {
+          "name": "te",
+          "detail": "in mail text"
+        },
+        "filter": {
+          "fields": [
+            "body"
+          ],
+          "queries": [
+            "te"
+          ]
+        },
+        "flags": [
+
+        ]
+      },
+      {
+        "id": "contacts",
+        "style": "default",
+        "name": "People",
+        "values": [
+          {
+            "id": "contact\/1\/103054",
+            "item": {
+              "name": "Steffen Templin",
+              "detail": "steffen.templin@open-xchange.com",
+              "image_url": "\/ajax\/image\/user\/picture?id=246&timestamp=1409818907125"
+            },
+            "options": [
+              {
+                "id": "from",
+                "name": "From",
+                "filter": {
+                  "fields": [
+                    "from"
+                  ],
+                  "queries": [
+                    "steffen.templin@open-xchange.com"
+                  ]
+                }
+              },
+              {
+                "id": "to",
+                "name": "To",
+                "filter": {
+                  "fields": [
+                    "to",
+                    "cc"
+                  ],
+                  "queries": [
+                    "steffen.templin@open-xchange.com"
+                  ]
+                }
+              },
+              {
+                "id": "all",
+                "name": "From\/To",
+                "filter": {
+                  "fields": [
+                    "from",
+                    "to",
+                    "cc"
+                  ],
+                  "queries": [
+                    "steffen.templin@open-xchange.com"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "contact\/1\/480502",
+            "item": {
+              "name": "test",
+              "detail": "test@test.de",
+              "image_url": "\/ajax\/image\/contact\/picture?folder=14830&id=480502&timestamp=1360571521293"
+            },
+            "options": [
+              {
+                "id": "from",
+                "name": "From",
+                "filter": {
+                  "fields": [
+                    "from"
+                  ],
+                  "queries": [
+                    "test@test.de",
+                    "tester@test.de",
+                    "testerama@test.de"
+                  ]
+                }
+              },
+              {
+                "id": "to",
+                "name": "To",
+                "filter": {
+                  "fields": [
+                    "to",
+                    "cc"
+                  ],
+                  "queries": [
+                    "test@test.de",
+                    "tester@test.de",
+                    "testerama@test.de"
+                  ]
+                }
+              },
+              {
+                "id": "all",
+                "name": "From\/To",
+                "filter": {
+                  "fields": [
+                    "from",
+                    "to",
+                    "cc"
+                  ],
+                  "queries": [
+                    "test@test.de",
+                    "tester@test.de",
+                    "testerama@test.de"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "te",
+            "name": "te",
+            "options": [
+              {
+                "id": "from",
+                "name": "From",
+                "filter": {
+                  "fields": [
+                    "from"
+                  ],
+                  "queries": [
+                    "te"
+                  ]
+                }
+              },
+              {
+                "id": "to",
+                "name": "To",
+                "filter": {
+                  "fields": [
+                    "to",
+                    "cc"
+                  ],
+                  "queries": [
+                    "te"
+                  ]
+                }
+              },
+              {
+                "id": "all",
+                "name": "From\/To",
+                "filter": {
+                  "fields": [
+                    "from",
+                    "to",
+                    "cc"
+                  ],
+                  "queries": [
+                    "te"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "flags": [
+
+        ]
+      },
+      {
+        "id": "date",
+        "style": "exclusive",
+        "name": "Date",
+        "options": [
+          {
+            "id": "last_week",
+            "name": "last week",
+            "filter": {
+              "fields": [
+                "date"
+              ],
+              "queries": [
+                "last_week"
+              ]
+            }
+          },
+          {
+            "id": "last_month",
+            "name": "last month",
+            "filter": {
+              "fields": [
+                "date"
+              ],
+              "queries": [
+                "last_month"
+              ]
+            }
+          },
+          {
+            "id": "last_year",
+            "name": "last year",
+            "filter": {
+              "fields": [
+                "date"
+              ],
+              "queries": [
+                "last_year"
+              ]
+            }
+          }
+        ],
+        "flags": [
+
+        ]
+      }
+    ]
+  }
+}

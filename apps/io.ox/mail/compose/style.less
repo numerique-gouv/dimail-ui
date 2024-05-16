@@ -1,0 +1,484 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+ @border-color: #ddd;
+
+ .io-ox-mail-compose-window {
+
+    .inline-yell {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        float: right;
+        color: #437d00;
+        font-weight: 500;
+        margin: 0 8px;
+        padding-top: 6px;
+    }
+
+    // toggle tinymce toolbar
+    &.text-editor .tinymce-toolbar,
+    &.no-toolbar .tinymce-toolbar {
+        display: none;
+    }
+
+    .tinymce-toolbar {
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid @border-color;
+
+        > * {
+            min-height: 40px;
+            z-index: 1;
+            padding-left: 8px;
+
+            .width-xs.maximized & { width: 1050px; }
+            .width-xs:not(.maximized) & { width: 630px; }
+
+            input.file-input:hover { cursor: pointer; }
+            .mce-container-body {
+                display: flex;
+                align-items: center;
+                min-height: 40px;
+            }
+            .mce-panel.mce-container:not(.mce-floatpanel):not(.mce-edit-area) { background-color: #fff; }
+            .mce-panel.mce-edit-area { border:1px solid #fff !important; }
+        }
+    }
+
+    .window-content {
+        flex: 1;
+    }
+
+    .window-body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .window-footer .container {
+        display: flex;
+
+        .composetoolbar {
+            display: flex;
+            flex: 1;
+            height: 2.286em;
+            padding-left: 32px;
+            margin-left: 0;
+
+        }
+        // elements
+        .composetoolbar > li {
+            margin: 0 6px;
+            padding: 0;
+            border: 1px transparent solid;
+
+            // baseline icons
+            a svg.font      { height: 20px; width: 28px; }
+            a svg.paperclip { height: 21px; width: 29px; }
+            a svg.cloud     { height: 22px; width: 31px; }
+            a svg.bars      { height: 16px; width: 22px; }
+
+            // style icons
+            & > a {
+                display: block;
+                padding-top: 4px;
+                // some backwards compatibility for non svg icons
+                & i.fa {
+                    width: 1.4em;
+                    margin-top: -4px;
+                }
+                & .fa {
+                    width: 28px;
+                    text-align: center;
+                    line-height: 32px;
+                    color:black;
+                    vertical-align: middle;
+                }
+
+                &:focus {
+                    outline: thin dotted;
+                    outline: 5px auto -webkit-focus-ring-color;
+                    outline-offset: -2px;
+                }
+            }
+        }
+
+        // toggle buttons
+        .composetoolbar > li.toggle {
+            padding: 0 1px;
+            border-radius: 3px;
+            &.checked { background-color: #e6e6e6; }
+            &.disabled {
+                i.fa { color: #aaaaaa; }
+                cursor: not-allowed;
+            }
+        }
+    }
+}
+
+// general style of fields
+.io-ox-mail-compose {
+
+    .mail-compose-fields > *:not(.sr-only) {
+        padding: 0 16px;
+        border-bottom: 1px solid @border-color;
+        position: relative;
+        // baseline adjustment
+        display: flex;
+        align-items: center;
+        min-height: 2.5rem;
+        .mail-input { flex: 1; }
+        // padding is applied via .recipient-actions
+        &.sender, &.recipient { padding-right: 0 };
+        &.sender .dropdown-caret {
+            top: 2px;
+            position: relative;
+        }
+    }
+
+    .mail-compose-fields {
+
+        // no placeholder, no focus style
+        .token-input,
+        .tokenfield,.tokenfield.focus,
+        .subject input, .subject input:focus {
+            .placeholder(transparent);
+            .box-shadow(~"none");
+            border-color: transparent;
+            padding-left: 0;
+            outline: 0;
+        }
+
+        .tokenfield {
+            min-height: 1.875rem;
+            background-color: transparent;
+        }
+
+        // focus line instead
+        .line-focus:focus-within {
+            // tokenfield-focus mixin
+            @color: @input-border-focus;
+            @color-rgba: rgba(red(@color), green(@color), blue(@color), .25);
+            outline: 0;
+            // .box-shadow(~"inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px @{color-rgba}");
+            .box-shadow(~"inset 1px 1px 1px rgba(0, 0, 0, .075), inset 0 0 4px 1px @{color-rgba}");
+            .box-shadow(~"inset 0 0 0px 0.2rem  @{color-rgba}");
+        }
+
+        // mail label
+        @maillabel: @hc-gray;
+        label.maillabel {
+            padding-right: 16px;
+            margin-bottom: 0;
+            color: @maillabel;
+        }
+        div.maillabel {
+            padding-right: 16px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: bold;
+            min-width: 48px;
+            a { color: @maillabel; }
+        }
+
+        .sender {
+            .name { color: #333; }
+            .address { color: @link-color; }
+        }
+
+        // toggle sender-realname/sender-onbehalfof hint
+        .sender-realname, .sender-onbehalfof {
+            display: none;
+            color: #767676;
+        }
+        &.no-realname .sender-realname,
+        &.onbehalfof .sender-onbehalfof {
+            display: flex;
+        }
+
+        .info-line {
+            i.fa {
+                padding-right: 16px;
+                font-size: 18px;
+            }
+            &.stripes-green { .stripes(#eaffe5, #dcf0d7, #4E7321) }
+
+            // mixin: stripesgenerator.com
+            .stripes(@pri, @sec, @text) {
+                background-image: linear-gradient(45deg, @pri 41.67%, @sec 41.67%, @sec 50%, @pri 50%, @pri 91.67%, @sec 91.67%, @sec 100%);
+                background-size: 7.07px 7.07px;
+                i.fa, .text { color: @text}
+            }
+        }
+
+        .attachments {
+            @width: 120px;
+            @height: 80px;
+            display: block;
+            overflow: auto;
+            // TODO-784: workaround to display bottom border
+            margin-bottom: 1px;
+
+            &.empty {
+                border-bottom: 0;
+                min-height: 1px;
+                padding: 0;
+            };
+            .inplace-dropzone { margin: 16px; }
+
+            // toggle text-aling
+            &:not(.guard-encrypted) .sharing .mail-size { text-align: right; }
+
+            .mail-attachment-list {
+                padding: 16px 0 0 0;
+
+                .header { display: none; };
+                .list-container { margin: 0; }
+                .preview-container {
+                    .scroll-left, .scroll-right {
+                        top: 0;
+                        height: @height;
+                    }
+                    ul.inline-items.preview {
+                        padding: 0;
+                        height: @height;
+                        li.item {
+                            height: @height;
+                            width: @width;
+                        }
+                    }
+                    li.item .fallback { line-height: @height; }
+                }
+
+                footer {
+                    padding: 6px 0 10px 0;
+                    align-items: center;
+
+                    // drive mail
+                    .share-attachments {
+                        label {
+                            color: #333;
+                        }
+                        .checkbox.custom { margin: 0; }
+                        button {
+                            text-decoration: none;
+                            margin: 0;
+                            padding: 0 0 0 8px;
+                        }
+                        padding: 0 32px 0 0;
+                        display: flex;
+                    }
+
+                    // pull right
+                    .mail-size { flex-grow: 1; }
+
+                    // image resize
+                    .resize-options {
+                        &.dropdown { margin-bottom: 0; }
+                        display: flex;
+                        justify-content: flex-end;
+                        margin-left: 16px;
+                    }
+
+                    .toggle-mode {
+                        margin-left: 12px;
+                        padding: 0 4px;
+                    }
+                }
+            }
+        }
+    }
+
+    .editor {
+
+        &:focus,
+        .plain-text:focus {
+            outline: 0;
+            .box-shadow(~"none");
+        }
+        .inplace-dropzone {
+            // TODO-784: adjust inline style within oxdrop plugin
+            margin: 16px !important;
+        }
+
+        .plain-text {
+            width: 100%;
+            border: none;
+            padding: 18px 21px;
+            margin-bottom: 12px;
+            -webkit-font-feature-settings: "liga" 0;
+            font-feature-settings: "liga" 0;
+            text-rendering: optimizeLegibility;
+            outline: none;
+            &.monospace { font-family: monospace; }
+        }
+    }
+
+    .recipient-actions {
+        .flex-center(row);
+        // handle growing field
+        .fa { font-size: 18px; }
+        button, a {
+            line-height: 22px;
+            padding: 0 8px;
+            color: @hc-gray;
+            text-decoration: none;
+        }
+        &:empty { margin-left: 16px; }
+        & > :last-child { margin-right: 8px; }
+        & > :first-child { margin-left: 8px; }
+    }
+
+    .mce-tinymce > .mce-stack-layout {
+        .mce-panel.mce-edit-area {
+            border-color: transparent !important;
+        }
+    }
+
+    .hidden-file-picker {
+        // same as .dropdown-menu > li > a
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: normal;
+        line-height: @line-height-base;
+        color: @dropdown-link-color;
+        white-space: nowrap;
+
+        // behave like a link
+        cursor: pointer;
+
+        // support for absolute input[file]
+        position: relative;
+        overflow: hidden;
+
+        &:hover, &:focus {
+            text-decoration: none;
+            color: @dropdown-link-hover-color;
+            background-color: @dropdown-link-hover-bg;
+        }
+
+        input[type="file"] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            background: #F00;
+            cursor: inherit;
+            display: block;
+            outline: 0;
+        }
+    }
+}
+
+.smartphone {
+    .io-ox-mail-compose {
+        @font-size-mobile: 16px;
+
+        // header
+        & > .mail-compose-fields {
+
+            .maillabel {
+                font-size: @font-size-mobile;
+                font-weight: 400;
+                color: #aaa;
+                min-width: 48px;
+            }
+
+            .sender { display: none; }
+
+            .subject input {
+                .placeholder(@dark-silver);
+                font-size: @font-size-mobile;
+                font-weight: 300;
+                padding-top: 0;
+                padding-left: 0;
+            }
+        }
+
+        .contenteditable-editor {
+            margin-bottom: 0;
+            .mce-panel.mce-edit-area {
+                border: 0 !important;
+            }
+        }
+
+        textarea {
+            padding:8px 16px;
+            border:0;
+            &:focus { outline: 0; }
+        }
+
+        textarea.editable, .mce-content-body.editable {
+            border-top: 0;
+            padding: 8px 16px;
+            margin-top: 0;
+            border: none;
+            outline: 0;
+
+            &.mce-edit-focus:focus { box-shadow: none; }
+        }
+
+        .composetoolbar-mobile {
+            &:first-child { padding-left: 0; }
+            padding-right: 16px;
+            div.dropdown {
+                display: inline-block;
+                margin-bottom: 4px;
+                &.signatures { margin-right: 15px; }
+            }
+
+            .btn.btn-link { padding-left: 0; }
+        }
+
+        .mail-attachment-list {
+            padding: 8px 0 9px;
+            &.empty { border-bottom: 0; }
+        }
+    }
+
+    .io-ox-mail-compose-window.header-top .window-header .btn[data-action="save"] { display:none; }
+}
+
+.share-attachments-view-dialog {
+    .password-wrapper {
+        margin-top: 24px;
+    }
+}
+
+.name-overwrite-view {
+    .checkbox.custom {
+        line-height: 1.42857143;
+        margin: 0;
+        i.toggle {
+            top: 0.25em;
+        }
+    }
+}

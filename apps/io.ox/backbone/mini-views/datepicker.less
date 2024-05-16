@@ -1,0 +1,81 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+.dateinput {
+    input { text-align: center; }
+
+    .time-field {
+        width: ~"calc(2.5rem + 60px)";
+        border-left: none;
+    }
+
+    .combobox {
+        display: inline;
+    }
+
+    .typeahead.calendaredit {
+        height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        min-width: 85px;
+        a {
+            text-align: right;
+            padding: 3px 15px 3px 3px;
+        }
+    }
+
+    &.dateonly .datepicker-day-field { border-radius: @border-radius-base; }
+
+    .datepicker-day-field {
+        width: ~"calc(3rem + 72px)";
+        height: 2.14285714em;
+    }
+    // in mobile mode only May be enabled on tablets as well, so separate from media query
+    &.mobile-mode .datepicker-day-field {
+        width: 100%;
+        border-radius: @border-radius-base;
+    }
+
+    .timezone {
+        width: auto;
+        font-size: 12px;
+
+        &.btn { cursor: pointer; height: 30px;}
+
+        &:hover, &:active, &:focus {
+            color: #555;
+            text-decoration: none;
+        }
+    }
+}
+
+/* Mobile */
+@media all and (max-width: @smartphone-breakpoint), all and (max-device-width: @smartphone-breakpoint) {
+    .dateinput {
+
+        .input-group { display: block; }
+
+        .datepicker-day-field {
+            padding: 4px 6px;
+        }
+    }
+}

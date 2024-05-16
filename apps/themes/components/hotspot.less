@@ -1,0 +1,87 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+//
+// pulsing hotspot
+//
+.hotspot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    // one more than dropdown z-index
+    z-index: 100001;
+    background-color: @hotspot-color;
+    border-radius: 50%;
+
+    &:before {
+        content: '';
+        position: absolute;
+        background-color: @pulse-color;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 1px solid @pulse-border-color;
+        -webkit-animation: hotspot-pulsar 2.0s infinite ease-out;
+        animation: hotspot-pulsar 2.0s infinite ease-out;
+        top: -56px;
+        left: -56px;
+        z-index: -1;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        background-color: @pulse-color;
+        width: 120px;
+        height: 120px;
+        top: -56px;
+        left: -56px;
+        border-radius: 50%;
+        border: 1px solid @pulse-border-color;
+        -webkit-animation: hotspot-pulsar-inner 2.0s infinite ease-out;
+        animation: hotspot-pulsar-inner 2.0s infinite ease-out;
+    }
+}
+
+@-webkit-keyframes hotspot-pulsar {
+    0%   { opacity: 0.65; transform: scale(0.1); }
+    100% { opacity: 0.00; transform: scale(1.0); }
+}
+
+@keyframes hotspot-pulsar {
+    0%   { opacity: 0.65; transform: scale(0.1); }
+    100% { opacity: 0.00; transform: scale(1.0); }
+}
+
+@-webkit-keyframes hotspot-pulsar-inner {
+    0%   { opacity: 0.00; transform: scale(0.1); }
+    24%, 90% { opacity: 0.00 }
+    25%  { opacity: 0.65; transform: scale(0.1); }
+    100% { opacity: 0.00; transform: scale(1.0); }
+}
+
+@keyframes hotspot-pulsar-inner {
+    0%   { opacity: 0.00; transform: scale(0.1); }
+    24%, 90% { opacity: 0.00 }
+    25%  { opacity: 0.65; transform: scale(0.1); }
+    100% { opacity: 0.00; transform: scale(1.0); }
+}

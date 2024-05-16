@@ -1,0 +1,179 @@
+{
+    "current": {
+        "timestamp": 1381419300867,
+        "data":
+            [
+                {
+                    "displayname": "EMPTY STRING",
+                    "content": "",
+                    "shared": false,
+                    "id": "333",
+                    "module": "io.ox/mail",
+                    "createdby": 395,
+                    "type": "signature",
+                    "props": {
+                        "Message-ID": "<1107857077.404.1389171824428.open-xchange@appsuite-dev-gw2>",
+                        "MIME-Version": "1.0",
+                        "Content-Type": "multipart/mixed;  boundary=\"----=_Part_2701_2010031979.1389090431122\""
+                    },
+                    "misc": {
+                        "insertion": "below"
+                    }
+                },
+                {
+                    "displayname": "SINGLELINE, TEXT (SURROUNDING WHITESPACE)",
+                    "content": "   Mustache banh mi Pinterest jean shorts Bushwick meggings, xxx flannel stumptown   ",
+                    "shared": false,
+                    "id": "294",
+                    "module": "io.ox/mail",
+                    "createdby": 395,
+                    "type": "signature",
+                    "props": {
+                        "Message-ID": "<1835196266.400.1389171824418.open-xchange@appsuite-dev-gw2>",
+                        "MIME-Version": "1.0",
+                        "Content-Type": "multipart/mixed;  boundary=\"----=_Part_2584_2061538729.1389088837272\""
+                    },
+                    "misc": {
+                        "insertion": "below"
+                    }
+                },
+                {
+                    "displayname": "MULTILINE, TEXT (SUBSEQUENT/SURROUNDING WHITESPACE)",
+                    "content": "  Aliqua tote bag incididunt organic      ↵Trust fund bespoke xxx aliqua,↵↵↵viral leggings xxxx forage actually Helvetica",
+                    "shared": false,
+                    "id": "293",
+                    "module": "io.ox/mail",
+                    "createdby": 395,
+                    "type": "signature",
+                    "props": {
+                        "Message-ID": "<1835196266.400.1389171824418.open-xchange@appsuite-dev-gw2>",
+                        "MIME-Version": "1.0",
+                        "Content-Type": "multipart/mixed;  boundary=\"----=_Part_2584_2061538729.1389088837272\""
+                    },
+                    "misc": {
+                        "insertion": "below"
+                    }
+                },
+                {
+                    "displayname": "SINGLELINE, TEXT (SUBSEQUENT WHITESPACE)",
+                    "content": "xxx M Y  N A M E  I S  S O L T A N xxx",
+                    "shared": false,
+                    "id": "326",
+                    "module": "io.ox/mail",
+                    "createdby": 395,
+                    "type": "signature",
+                    "props": {
+                        "Message-ID": "<1370605155.401.1389171824421.open-xchange@appsuite-dev-gw2>",
+                        "MIME-Version": "1.0",
+                        "Content-Type": "multipart/mixed;  boundary=\"----=_Part_2578_436462297.1389088829009\""
+                    },
+                    "misc": {
+                        "insertion": "above"
+                    }
+                },
+                {
+                    "displayname": "MULTILINE, TEXT (SUBSEQUENT WHITESPACE, ASCII SEPARATOR)",
+                    "content": "asdfsdklfjsl       ↵asdajfkl↵sdfkjsldfk↵sdfkjsdlfk↵↵↵sdfsd        dsdfsdfs",
+                    "shared": false,
+                    "id": "328",
+                    "module": "io.ox/mail",
+                    "createdby": 395,
+                    "type": "signature",
+                    "props": {
+                        "Message-ID": "<1087317205.402.1389171824423.open-xchange@appsuite-dev-gw2>",
+                        "MIME-Version": "1.0",
+                        "Content-Type": "multipart/mixed;  boundary=\"----=_Part_2591_909801564.1389088848768\""
+                    },
+                    "misc": {
+                        "insertion": "below"
+                    }
+                },
+                {
+                    "displayname": "SINGLELINE, HTML (SUBSEQUENT WHITESPACE)",
+                    "content": " <h1> xxx M Y  N A M E  I S  Z O L T A N xxx </h1> ",
+                    "shared": false,
+                    "id": "329",
+                    "module": "io.ox/mail",
+                    "createdby": 395,
+                    "type": "signature",
+                    "props": {
+                        "Message-ID": "<334383945.403.1389171824426.open-xchange@appsuite-dev-gw2>",
+                        "MIME-Version": "1.0",
+                        "Content-Type": "multipart/mixed;  boundary=\"----=_Part_2599_1895394905.1389088861989\""
+                    },
+                    "misc": {
+                        "insertion": "below"
+                    }
+                },
+                {
+                    "displayname": "MULTILINE, HTML (SUBSEQUENT WHITESPACE)",
+                    "content": " <br>↵↵<h1>xxx M Y  N A M E  I S  S O L T A N xxx</h1>",
+                    "shared": false,
+                    "id": "330",
+                    "module": "io.ox/mail",
+                    "createdby": 395,
+                    "type": "signature",
+                    "props": {
+                        "Message-ID": "<1107857077.404.1389171824428.open-xchange@appsuite-dev-gw2>",
+                        "MIME-Version": "1.0",
+                        "Content-Type": "multipart/mixed;  boundary=\"----=_Part_2701_2010031979.1389090431122\""
+                    },
+                    "misc": {
+                        "insertion": "below"
+                    }
+                },
+                {
+                    "displayname": "SINGLELINE (SPECIAL)",
+                    "content": "&",
+                    "shared": false,
+                    "id": "340",
+                    "module": "io.ox/mail",
+                    "createdby": 395,
+                    "type": "signature",
+                    "props": {
+                        "Message-ID": "<1107857077.404.1389171824428.open-xchange@appsuite-dev-gw2>",
+                        "MIME-Version": "1.0",
+                        "Content-Type": "multipart/mixed;  boundary=\"----=_Part_2701_2010031979.1389090431122\""
+                    },
+                    "misc": {
+                        "insertion": "below"
+                    }
+                },
+                {
+                    "displayname": "Elite",
+                    "content": "elite signature",
+                    "shared": false,
+                    "id": "1337",
+                    "module": "io.ox/mail",
+                    "createdby": 395,
+                    "type": "signature",
+                    "props": {
+                        "Message-ID": "<1107857077.404.1389171824428.open-xchange@appsuite-dev-gw2>",
+                        "MIME-Version": "1.0",
+                        "Content-Type": "multipart/mixed;  boundary=\"----=_Part_2701_2010031979.1389090431122\""
+                    },
+                    "misc": {
+                        "insertion": "below"
+                    }
+                },
+                {
+                    "content": "Lord Lightbringer\r\nFrontend-Team\n\nOpen-Xchange GmbH\r\n\r\n--\r\nPhone: 02761 75252 - xy, Fax: +49 2761 838530\r\n\r\n--------------------------------------------------------------------------------\r\nOpen-Xchange AG,  Rollnerstr. 14, 90408 Nürnberg, Amtsgericht Nürnberg HRB 24738\nVorstand: Rafael Laguna de la Vera, Carsten Dirks, \r\nAufsichtsratsvorsitzender: Richard Seibt \n\nEuropean Office: Open-Xchange GmbH, Martinstr. 41, D-57462 Olpe, Germany\nAmtsgericht Siegen, HRB 8718, Geschäftsführer: Frank Hoberg, Martin Kauss\r\n--------------------------------------------------------------------------------\r\n",
+                    "createdby": 395,
+                    "displayname": "OX Standard",
+                    "id": "1338",
+                    "misc": {
+                        "insertion": "below"
+                    },
+                    "module": "io.ox/mail",
+                    "props": {
+                        "MIME-Version": "1.0",
+                        "Message-ID": "<936486943.903.1424427378177.JavaMail.open-xchange@appsuite-dev-gw1>",
+                        "Content-Type": "multipart/mixed;  boundary=\"----=_Part_52_868657602.1373960667831\""
+                    },
+                    "shared": false,
+                    "type": "signature"
+                }
+            ]
+
+    }
+}

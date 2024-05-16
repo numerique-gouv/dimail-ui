@@ -1,0 +1,72 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+.schedjoules {
+    .item { display: flex; }
+
+    .item-name {
+        flex: 1;
+        margin: 10px 0 8px 0;
+    }
+
+    .breadcrumb-view { padding-top: 5px; }
+
+    .item-block {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .schedjoules-icon {
+        position: relative;
+        top: -2px;
+        float: left;
+        margin-left: 7px;
+        margin-right: 8px;
+        width: 24px;
+        height: 24px;
+        background-size: 24px 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .checkbox.switch.small { padding-left: 40px; }
+
+    .chevron {
+        margin: 10px 8px 8px 10px;
+        color: #ccc;
+    }
+
+    .list-group-item {
+        padding: 5px 15px;
+
+        &.page { cursor: pointer; }
+    }
+
+    .list-group-item.page:hover, .list-group-item.page:focus {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    li:focus {
+        outline: 2px solid #3c73aa;
+        text-decoration: underline;
+    }
+}

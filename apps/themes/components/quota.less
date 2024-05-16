@@ -1,0 +1,52 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+.io-ox-quota-view {
+
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 300;
+    padding-bottom: 16px;
+
+    .folder-tree & {
+        padding: 0 16px 16px 40px;
+    }
+
+    .quota-description {
+        // use display: table (or float: left) to avoid inner margin issues
+        display: table;
+        width: 100%;
+        margin: 3px 0 4px 0;
+    }
+
+    .numbers {
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .progress {
+        clear: both;
+        margin: 0;
+        height: 8px;
+        background-color: #ddd;
+    }
+}
