@@ -1,0 +1,71 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+.dinum-toolbar-launch {
+    display: flex !important;
+    align-items: center;
+    cursor: pointer;
+    .btn-link {
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: @blue;
+        background-repeat: none;
+    }
+    .btn-link:hover, .btn-link:focus {
+        outline: 0;
+        opacity: 1;
+        background: @blue-light;
+    }
+    &:hover, &:focus {
+        outline: 0;
+        color: @blue-light !important;
+    }
+    &-button {
+        color: @blue;
+        width: 48px;
+        .title {
+            visibility: hidden;
+            height: 0;
+        }
+    }
+}
+
+#io-ox-top-logo {
+    height: 50px;
+    margin-top: 5px;
+}
+
+#lasuitenumerique-gaufre-iframe {
+    @media (max-width: 768px) {
+        left: 20px !important;
+    }
+}
+
+.lasuitenumerique-gaufre-btn--dsfr.fr-icon-lasuite,
+.lasuitenumerique-gaufre-btn--dsfr.fr-icon-lasuite {
+    opacity: 0.8;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg width%3D%2224%22 height%3D%2224%22 viewBox%3D%220 0 24 24%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E  %3Cpath d%3D%22m11.931261 8.1750088 3.362701 1.9413282v3.882529l-3.362701 1.941262-3.3627003-1.941262v-3.882529zm3.785275-6.8155706 3.362701 1.9412995v3.8825496l-3.362701 1.9412783-3.362701-1.9412783V3.3007377Zm0 13.5159968 3.362701 1.941263v3.882529l-3.362701 1.941335-3.362701-1.941335v-3.882529ZM4.3627012 8.1750088l3.3627014 1.9413282v3.882529l-3.3627014 1.941262L1 13.998866v-3.882529Zm3.7841385-6.8155706 3.3627023 1.9412995v3.8825496L8.1468397 9.1245656 4.7841172 7.1832873V3.3007377Zm0 13.5159968 3.3627023 1.941263v3.882529l-3.3627023 1.941335-3.3627225-1.941335v-3.882529ZM19.637299 8.1750088 23 10.116337v3.882529l-3.362701 1.941262-3.362702-1.941262v-3.882529z%22%2F%3E%3C%2Fsvg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg width%3D%2224%22 height%3D%2224%22 viewBox%3D%220 0 24 24%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E  %3Cpath d%3D%22m11.931261 8.1750088 3.362701 1.9413282v3.882529l-3.362701 1.941262-3.3627003-1.941262v-3.882529zm3.785275-6.8155706 3.362701 1.9412995v3.8825496l-3.362701 1.9412783-3.362701-1.9412783V3.3007377Zm0 13.5159968 3.362701 1.941263v3.882529l-3.362701 1.941335-3.362701-1.941335v-3.882529ZM4.3627012 8.1750088l3.3627014 1.9413282v3.882529l-3.3627014 1.941262L1 13.998866v-3.882529Zm3.7841385-6.8155706 3.3627023 1.9412995v3.8825496L8.1468397 9.1245656 4.7841172 7.1832873V3.3007377Zm0 13.5159968 3.3627023 1.941263v3.882529l-3.3627023 1.941335-3.3627225-1.941335v-3.882529ZM19.637299 8.1750088 23 10.116337v3.882529l-3.362701 1.941262-3.362702-1.941262v-3.882529z%22%2F%3E%3C%2Fsvg%3E");
+}

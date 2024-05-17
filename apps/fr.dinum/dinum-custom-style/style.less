@@ -1,0 +1,59 @@
+/*
+*
+* @copyright Copyright (c) Open-Xchange GmbH, Germany <info@open-xchange.com>
+* @license AGPL-3.0
+*
+* This code is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+
+* You should have received a copy of the GNU Affero General Public License
+* along with OX App Suite. If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
+*
+* Any use of the work other than as authorized under this license or copyright law is prohibited.
+*
+*/
+
+#io-ox-top-logo {
+  height: 40px;
+  margin-top: 10px;
+  }
+
+#io-ox-appcontrol #io-ox-quicklaunch>button,
+#io-ox-appcontrol #io-ox-topleftbar .launcher>a,
+#io-ox-appcontrol #io-ox-topleftbar .launcher>a,
+#io-ox-appcontrol #io-ox-toprightbar .launcher>a,
+#io-ox-appcontrol #io-ox-topleftbar .launcher>a,
+#io-ox-appcontrol #io-ox-toprightbar .launcher>a {
+    color: @blue;
+    &:hover, &:focus {
+    	color: @blue-light;
+    	background-color: #fff;
+    }
+}
+
+#io-ox-appcontrol #io-ox-toprightbar .launcher .fasvg text,
+#io-ox-appcontrol #io-ox-topleftbar .launcher>a svg,
+#io-ox-appcontrol #io-ox-topleftbar .launcher .fasvg text {
+    fill: @blue;
+    &:hover, &:focus {
+    	fill: @blue-light;
+    	background-color: #fff;
+    }
+}
+
+#io-ox-appcontrol {
+	border-bottom: 1px solid rgba(0, 0, 0, .04);
+}
+
+.visible-selection.has-focus .list-item.selected *,
+.list-view.visible-selection .list-item.selected {
+	color: #000 !important;
+	background-color: #f6f6f6; /* grey-975 */
+}
