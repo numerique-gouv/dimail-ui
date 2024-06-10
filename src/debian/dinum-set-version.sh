@@ -1,28 +1,24 @@
 #!/bin/bash
 
 etape=$1
-dir="./apps/com.example/helloWorld/"
 version=`dpkg-parsechangelog --show-field Version`
-echo Maintenant $etape
 
 if [ "$etape" != "build" ]; then
+	echo $etape is not for me, will play later
 	exit 0
 fi
 
-if [ -f $dir/register.js ]; then
-	mv $dir/register.js $dir/register.js.old
-	sed -e "s/DINUM-VERNUM/$version/" < $dir/register.js.old > $dir/register.js
-	rm $dir/register.js.old
-else
-	echo "File $dir/register.js not found. Failing."
-	exit 1
-fi
-if [ -f $dir/manifest.json ]; then
-	mv $dir/manifest.json $dir/manifest.json.old
-	sed -e "s/DINUM-VERNUM/$version/" < $dir/manifest.json.old > $dir/manifest.json
-	rm $dir/manifest.json.old
-else
-	echo "File $dir/manifest.json not found. Failing."
-	exit 1
-fi
+echo During $etape, inject the version number in various places in each plugin
 
+for dir in ./apps/fr.dinum/*; do
+	for file in register.js manifest.json; do
+		if [ -f $dir/$file ]; then
+			mv $dir/$file $dir/$file.old
+			sed -e "s/DINUM-VERNUM/$version/" < $dir/$file.old > $dir/$file
+			rm $dir/$file.old
+		else
+			echo "File $dir/$file not found. Failing."
+			exit 1
+		fi
+	done
+done
