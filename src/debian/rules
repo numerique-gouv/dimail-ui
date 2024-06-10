@@ -22,4 +22,6 @@ override_dh_auto_clean:
 	rm -rf $(FRONTEND) $(BACKEND)
 
 %:
+	chmod a+x ./debian/dinum-set-version.sh
+	[ -x ./debian/dinum-set-version.sh ] && ./debian/dinum-set-version.sh $@
 	dh $@
