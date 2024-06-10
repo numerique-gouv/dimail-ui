@@ -1,0 +1,17 @@
+{
+    "appserver": {
+        "protocol": "https",
+        "livereload": true,
+        "server": "https://webmail.dev.ox.numerique.gouv.fr/appsuite/",
+        "rejectUnauthorized": true,
+        "verbose": [],
+        "prefixes": [
+            "build/"
+        ],
+        "manifests": [
+            "build/manifests/"
+        ]
+    },
+    "debug": false,
+    "coreDir": "build"
+}
