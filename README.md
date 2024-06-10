@@ -10,5 +10,5 @@ docker compose exec -it --user dev dimail-ui bash
 
 ## build debian package
 ```
-docker compose exec -it --user dev dimail-ui /build-package.sh
+docker compose run -it --entrypoint /build-package.sh dimail-ui
 ```

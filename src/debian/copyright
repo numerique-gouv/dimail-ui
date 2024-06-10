@@ -1,0 +1,7 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: dimail-ui
+Upstream-Contact: &#34;Éléonore Voisin&#34; &lt;eleonore.voisin@mail.numerique.gouv.fr&gt;
+
+Files: *
+Copyright: (c) 2024 
+License: CC-BY-NC-SA-3.0

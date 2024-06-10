@@ -1,0 +1,12 @@
+Source: dimail-ui
+Section: non-free/web
+Priority: optional
+Maintainer: &#34;Éléonore Voisin&#34; &lt;eleonore.voisin@mail.numerique.gouv.fr&gt;
+Build-Depends: debhelper (>= 8.0.0), nodejs (>= 0.10)
+Standards-Version: 3.9.2
+
+Package: dimail-ui
+Architecture: all
+Depends: ${misc:Depends}, open-xchange-appsuite-manifest
+Description: open-xchange plugins for suite numerique
+
