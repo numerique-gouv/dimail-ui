@@ -1,0 +1,36 @@
+{
+  "name": "dimail-ui",
+  "maintainer": "Éléonore voisin <eleonore.voisin@mail.numerique.gouv.fr>",
+  "license": "CC-BY-NC-SA-3.0",
+  "version": "0.0.1",
+  "description": "open-xchange plugins for suite numerique",
+
+  "scripts": {
+    "msgmerge": "for i in i18n/*.po; do msgmerge -Us --previous --backup=none \"$i\" i18n/ox.pot; done"
+  },
+  "dependencies": {
+  },
+  "optionalDependencies": {
+  },
+  "devDependencies": {
+    "@open-xchange/appserver": "^0.8.0-pre1",
+    "@open-xchange/shared-grunt-config": "^0.15.0-pre5",
+    "assemble-less": "^0.7.0",
+    "eslint": "^6.2.2",
+    "eslint-config-open-xchange-appsuite": "^0.4.0",
+    "grunt": "^1.4.1",
+    "grunt-bump": "0.8.0",
+    "grunt-check-dependencies": "1.0.0",
+    "grunt-contrib-clean": "2.0.0",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-contrib-uglify": "^5.0.1",
+    "grunt-eslint": "22.0.0",
+    "grunt-newer": "1.3.0",
+    "grunt-require-gettext": "^0.8.1",
+    "rimraf": "2.6.3",
+    "underscore": "^1.12.1",
+    "grunt-contrib-connect": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}

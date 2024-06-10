@@ -1,0 +1,8 @@
+services:
+  dimail-ui:
+    build:
+      context: ./oxdev
+    network_mode: host
+    volumes:
+      - "./src:/volume/dev/src"
+
