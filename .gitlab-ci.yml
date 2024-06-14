@@ -3,8 +3,12 @@ stages:
 
 build:
   stage: run
-  image: docker
-  services:
-    - docker:dind
+  image: debian:12
   script:
-    - docker compose run -it --entrypoint /build-package.sh dimail-ui 
+    - apt-get update
+    - apt-get install -y nodejs npm vim debhelper
+    - npm install -g grunt-cli grunt-exec bower
+    - cd src/
+    - npm install
+    - grunt dpkg-buildpackage --include-dependencies
+    - ls dist/
