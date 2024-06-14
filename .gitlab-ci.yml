@@ -1,7 +1,7 @@
 stages:
   - run
 
-build:
+run:
   stage: run
   image: debian:12
   script:
@@ -15,4 +15,10 @@ build:
   artifacts:
     paths:
       - src/dist/dimail-ui_*_all.deb
+
+upload:
+  stage: upload
+  script:
+    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file src/dist/dimail-ui_0.0.1-1_all.deb "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/my_package/0.0.1-1/dimail-ui_0.0.1-1_all.deb"'
+
 
