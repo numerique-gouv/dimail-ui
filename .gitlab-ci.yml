@@ -4,5 +4,7 @@ stages:
 build:
   stage: run
   image: docker
+  services:
+    - docker:dind
   script:
     - docker compose run -it --entrypoint /build-package.sh dimail-ui 
