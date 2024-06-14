@@ -7,7 +7,7 @@ run:
   image: debian:12
   script:
     - apt-get update
-    - apt-get install -y nodejs npm vim debhelper
+    - apt-get install -y nodejs npm vim debhelper curl
     - npm install -g grunt-cli grunt-exec bower
     - cd src/
     - npm install
