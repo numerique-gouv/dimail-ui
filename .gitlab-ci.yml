@@ -12,7 +12,7 @@ run:
     - npm install
     - grunt dpkg-buildpackage --include-dependencies
     - ls dist/
-    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file src/dist/dimail-ui_0.0.1-1_all.deb "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/my_package/0.0.1-1/dimail-ui_0.0.1-1_all.deb"'
+    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/dimail-ui_0.0.1-1_all.deb "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/my_package/0.0.1-1/dimail-ui_0.0.1-1_all.deb"'
   artifacts:
     paths:
       - src/dist/dimail-ui_*_all.deb
