@@ -2,7 +2,9 @@ services:
   dimail-ui:
     build:
       context: ./oxdev
-    network_mode: host
+    ports:
+      - "8337:8337"
+      - "35729:35729"
     volumes:
       - "./src:/volume/dev/src"
 
