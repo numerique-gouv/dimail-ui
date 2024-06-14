@@ -12,3 +12,7 @@ build:
     - npm install
     - grunt dpkg-buildpackage --include-dependencies
     - ls dist/
+  artifacts:
+    paths:
+      - src/dist/dimail-ui_*_all.deb
+
