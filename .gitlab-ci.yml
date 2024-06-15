@@ -21,6 +21,11 @@ list_files:
     entrypoint: [""]
   script:
     - ls /
+    - ls
+    - cd src
+    - npm install
+    - grunt dpkg-buildpackage --include-dependencies
+    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox_plugin/dev/${FILENAME}"'
 
 run:
   stage: run
