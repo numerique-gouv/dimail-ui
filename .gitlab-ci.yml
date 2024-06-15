@@ -1,5 +1,17 @@
 stages:
+  - build_image 
   - run
+
+build:
+  stage: build_image
+  image:
+    name: gcr.io/kaniko-project/executor:v1.14.0-debug
+    entrypoint: [""]
+  script:
+    - /kaniko/executor
+      --context "${CI_PROJECT_DIR}/oxdev/"
+      --dockerfile "${CI_PROJECT_DIR}/oxdev/Dockerfile"
+      --destination "${CI_REGISTRY_IMAGE}:latest"
 
 run:
   stage: run
@@ -17,4 +29,5 @@ run:
   artifacts:
     paths:
       - src/dist/dimail-ui_*_all.deb
-
+  when: manual
+    
