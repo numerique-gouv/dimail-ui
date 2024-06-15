@@ -20,11 +20,10 @@ list_files:
     name: ${CI_REGISTRY_IMAGE}:latest
     entrypoint: [""]
   script:
-    - ls /
-    - ls
     - cd src
     - npm install
     - grunt dpkg-buildpackage --include-dependencies
+    - FILENAME=`basename dist/dimail-ui_*_all.deb`
     - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox_plugin/dev/${FILENAME}"'
 
 run:
