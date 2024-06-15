@@ -15,6 +15,14 @@ build:
 
 run:
   stage: run
+  image:
+    name: ${CI_REGISTRY_IMAGE}:latest
+    entrypoint: [""]
+  script:
+    - ls /
+
+run:
+  stage: run
   image: debian:12
   script:
     - apt-get update
