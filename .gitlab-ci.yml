@@ -12,8 +12,9 @@ build:
       --context "${CI_PROJECT_DIR}/oxdev/"
       --dockerfile "${CI_PROJECT_DIR}/oxdev/Dockerfile"
       --destination "${CI_REGISTRY_IMAGE}:latest"
+  when: manual
 
-run:
+list_files:
   stage: run
   image:
     name: ${CI_REGISTRY_IMAGE}:latest
