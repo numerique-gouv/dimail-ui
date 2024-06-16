@@ -1,8 +1,6 @@
 stages:
   - check_image
   - test_image
-  - build_image
-  - run
 
 #hash_container:
 #  stage: check_image
