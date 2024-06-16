@@ -41,6 +41,9 @@ build_package:
 
 push_package_from_commit:
   stage: push_package
+  image:
+    name: ${CI_REGISTRY_IMAGE}:${CONTAINER_HASH}
+    entrypoint: [ "" ]
   script:
     - FILENAME=`basename dist/dimail-ui_*_all.deb`
     - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox-plugins/${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}/${FILENAME}"'
