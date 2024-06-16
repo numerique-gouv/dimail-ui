@@ -1,46 +1,67 @@
 stages:
-  - build_image 
+  - check_image
+  - test_image
+  - build_image
   - run
 
-build:
-  stage: build_image
-  image:
-    name: gcr.io/kaniko-project/executor:v1.14.0-debug
-    entrypoint: [""]
-  script:
-    - /kaniko/executor
-      --context "${CI_PROJECT_DIR}/oxdev/"
-      --dockerfile "${CI_PROJECT_DIR}/oxdev/Dockerfile"
-      --destination "${CI_REGISTRY_IMAGE}:latest"
-  when: manual
+#hash_container:
+#  stage: check_image
+#  script:
+#    - md5=`md5sum file`
+#    - echo
 
-list_files:
-  stage: run
-  image:
-    name: ${CI_REGISTRY_IMAGE}:latest
-    entrypoint: [""]
+hash_container:
+  stage: check_image
   script:
-    - cd src
-    - npm install
-    - grunt dpkg-buildpackage --include-dependencies
-    - FILENAME=`basename dist/dimail-ui_*_all.deb`
-    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox_plugin/dev/${FILENAME}"'
-
-run:
-  stage: run
-  image: debian:12
-  script:
-    - apt-get update
-    - apt-get install -y nodejs npm vim debhelper curl
-    - npm install -g grunt-cli grunt-exec bower
-    - cd src/
-    - npm install
-    - grunt dpkg-buildpackage --include-dependencies
-    - ls dist/
-    - FILENAME=`basename dist/dimail-ui_*_all.deb`
-    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox_plugin/dev/${FILENAME}"'
+    - echo "CONTAINER_HASH=`md5sum oxdev/Dockerfile`" > build.env
   artifacts:
-    paths:
-      - src/dist/dimail-ui_*_all.deb
-  when: manual
-    
+    reports:
+      dotenv: build.env
+
+test-job:
+  stage: test_image
+  script:
+    - echo "$CONTAINER_HASH"  # Output is: 'value_from_build_job'
+#
+#build:
+#  stage: build_image
+#  image:
+#    name: gcr.io/kaniko-project/executor:v1.14.0-debug
+#    entrypoint: [""]
+#  script:
+#    - /kaniko/executor
+#      --context "${CI_PROJECT_DIR}/oxdev/"
+#      --dockerfile "${CI_PROJECT_DIR}/oxdev/Dockerfile"
+#      --destination "${CI_REGISTRY_IMAGE}:latest"
+#  when: manual
+#
+#list_files:
+#  stage: run
+#  image:
+#    name: ${CI_REGISTRY_IMAGE}:latest
+#    entrypoint: [""]
+#  script:
+#    - cd src
+#    - npm install
+#    - grunt dpkg-buildpackage --include-dependencies
+#    - FILENAME=`basename dist/dimail-ui_*_all.deb`
+#    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox_plugin/dev/${FILENAME}"'
+#
+#run:
+#  stage: run
+#  image: debian:12
+#  script:
+#    - apt-get update
+#    - apt-get install -y nodejs npm vim debhelper curl
+#    - npm install -g grunt-cli grunt-exec bower
+#    - cd src/
+#    - npm install
+#    - grunt dpkg-buildpackage --include-dependencies
+#    - ls dist/
+#    - FILENAME=`basename dist/dimail-ui_*_all.deb`
+#    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox_plugin/dev/${FILENAME}"'
+#  artifacts:
+#    paths:
+#      - src/dist/dimail-ui_*_all.deb
+#  when: manual
+#
