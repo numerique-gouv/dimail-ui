@@ -2,6 +2,7 @@ stages:
   - hash_container
   - build_container
   - build_package
+  - push_package
 
 hash_container:
   stage: hash_container
@@ -34,8 +35,28 @@ build_package:
     - cd src
     - npm install
     - grunt dpkg-buildpackage --include-dependencies
+  artifacts:
+    paths:
+      - src/dist/dimail-ui_*_all.deb
+
+push_package_from_commit:
+  stage: push_package
+  script:
     - FILENAME=`basename dist/dimail-ui_*_all.deb`
-    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox_plugin/dev/${FILENAME}"'
+    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox-plugins/${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}/${FILENAME}"'
+  rules:
+    - changes:
+      - src/**/*
+
+push_package_from_tag:
+  stage: push_package
+  image:
+    name: ${CI_REGISTRY_IMAGE}:${CONTAINER_HASH}
+    entrypoint: [ "" ]
+  script:
+    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox-plugins/${CI_COMMIT_TAG}/${FILENAME}"'
+  rules:
+    - if: $CI_COMMIT_TAG
 
 #run:
 #  stage: run
