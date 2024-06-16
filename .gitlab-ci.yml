@@ -1,37 +1,32 @@
 stages:
-  - check_image
-  - test_image
-
-#hash_container:
-#  stage: check_image
-#  script:
-#    - md5=`md5sum file`
-#    - echo
+  - hash_container
+  - build_image
 
 hash_container:
-  stage: check_image
+  stage: hash_container
   script:
-    - echo "CONTAINER_HASH=`md5sum oxdev/Dockerfile`" > build.env
+    - echo "CONTAINER_HASH=`md5sum oxdev/Dockerfile | cut -c -32`" > build.env
   artifacts:
     reports:
       dotenv: build.env
 
-test-job:
-  stage: test_image
-  script:
-    - echo "$CONTAINER_HASH"  # Output is: 'value_from_build_job'
-#
-#build:
-#  stage: build_image
-#  image:
-#    name: gcr.io/kaniko-project/executor:v1.14.0-debug
-#    entrypoint: [""]
+#test-job:
+#  stage: test_image
 #  script:
-#    - /kaniko/executor
-#      --context "${CI_PROJECT_DIR}/oxdev/"
-#      --dockerfile "${CI_PROJECT_DIR}/oxdev/Dockerfile"
-#      --destination "${CI_REGISTRY_IMAGE}:latest"
-#  when: manual
+#    - echo "$CONTAINER_HASH"  # Output is: 'value_from_build_job'
+#
+
+build:
+  stage: build_image
+  image:
+    name: gcr.io/kaniko-project/executor:v1.14.0-debug
+    entrypoint: [""]
+  script:
+    - /kaniko/executor
+      --context "${CI_PROJECT_DIR}/oxdev/"
+      --dockerfile "${CI_PROJECT_DIR}/oxdev/Dockerfile"
+      --destination "${CI_REGISTRY_IMAGE}:${CONTAINER_HASH}"
+
 #
 #list_files:
 #  stage: run
