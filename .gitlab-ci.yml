@@ -1,6 +1,7 @@
 stages:
   - hash_container
-  - build_image
+  - build_container
+  - build_package
 
 hash_container:
   stage: hash_container
@@ -10,36 +11,32 @@ hash_container:
     reports:
       dotenv: build.env
 
-#test-job:
-#  stage: test_image
-#  script:
-#    - echo "$CONTAINER_HASH"  # Output is: 'value_from_build_job'
-#
-
-build:
-  stage: build_image
+build_container:
+  stage: build_container
   image:
     name: gcr.io/kaniko-project/executor:v1.14.0-debug
     entrypoint: [""]
+  rules:
+    - changes:
+        - oxdev/Dockerfile
   script:
     - /kaniko/executor
       --context "${CI_PROJECT_DIR}/oxdev/"
       --dockerfile "${CI_PROJECT_DIR}/oxdev/Dockerfile"
       --destination "${CI_REGISTRY_IMAGE}:${CONTAINER_HASH}"
 
-#
-#list_files:
-#  stage: run
-#  image:
-#    name: ${CI_REGISTRY_IMAGE}:latest
-#    entrypoint: [""]
-#  script:
-#    - cd src
-#    - npm install
-#    - grunt dpkg-buildpackage --include-dependencies
-#    - FILENAME=`basename dist/dimail-ui_*_all.deb`
-#    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox_plugin/dev/${FILENAME}"'
-#
+build_package:
+  stage: build_package
+  image:
+    name: ${CI_REGISTRY_IMAGE}:${CONTAINER_HASH}
+    entrypoint: [""]
+  script:
+    - cd src
+    - npm install
+    - grunt dpkg-buildpackage --include-dependencies
+    - FILENAME=`basename dist/dimail-ui_*_all.deb`
+    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox_plugin/dev/${FILENAME}"'
+
 #run:
 #  stage: run
 #  image: debian:12
