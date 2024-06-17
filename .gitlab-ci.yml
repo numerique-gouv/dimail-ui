@@ -41,12 +41,13 @@ build_package:
     paths:
       - src/dist/dimail-ui_*_all.deb
 
-push_package_from_commit:
+push_package:
   stage: push_package
   image:
     name: ${CI_REGISTRY_IMAGE}:${CONTAINER_HASH}
     entrypoint: [ "" ]
   script:
+    - cd src/
+    - FILENAME=`basename dist/dimail-ui_*_all.deb`
     - VERSION=`dpkg-parsechangelog --show-field Version`
-    - FILENAME=`basename src/dist/dimail-ui_*_all.deb`
-    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file src/dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox-plugins-v${VERSION}/${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}/${FILENAME}"'
+    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox-plugins-v${VERSION}/${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}/${FILENAME}"'
