@@ -36,7 +36,7 @@ define('fr.dinum/gaufre/register', [
 
     loadScript();
 
-    ext.point('io.ox/core/appcontrol').extend({
+    ext.point('io.ox/core/appcontrol/right').extend({
         id: 'launcherdinum',
         index: 500,
         draw: function () {
