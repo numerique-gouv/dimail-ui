@@ -47,18 +47,6 @@ push_package_from_commit:
     name: ${CI_REGISTRY_IMAGE}:${CONTAINER_HASH}
     entrypoint: [ "" ]
   script:
+    - VERSION=`dpkg-parsechangelog --show-field Version`
     - FILENAME=`basename src/dist/dimail-ui_*_all.deb`
-    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file src/dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox-plugins/${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}/${FILENAME}"'
-  rules:
-    - if : '$CI_COMMIT_TAG == null'
-
-push_package_from_tag:
-  stage: push_package
-  image:
-    name: ${CI_REGISTRY_IMAGE}:${CONTAINER_HASH}
-    entrypoint: [ "" ]
-  script:
-    - FILENAME=`basename src/dist/dimail-ui_*_all.deb`
-    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file src/dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox-plugins/${CI_COMMIT_TAG}/${FILENAME}"'
-  rules:
-    - if: $CI_COMMIT_TAG
+    - 'curl --fail-with-body --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file src/dist/${FILENAME} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/ox-plugins-v${VERSION}/${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}/${FILENAME}"'
