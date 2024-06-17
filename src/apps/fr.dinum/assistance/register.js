@@ -22,11 +22,6 @@
 
 define('fr.dinum/assistance/register', ['io.ox/core/extensions', 'gettext!io.ox/core'], function (ext, gt) {
     'use strict';
-    console.log('Bonjour Benjamin, ceci est le register mis a jour');
-    if (ox.manifests.plugins['fr.dinum/assistance/register'].version !== 'DINUM-VERNUM') {
-        self.suicide();
-    }
-
 
     function assistance() {
         this.link('assistance', gt('Assistance'), function (e) {
