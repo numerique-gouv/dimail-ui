@@ -2,7 +2,7 @@
   "name": "dimail-ui",
   "maintainer": "Éléonore voisin <eleonore.voisin@mail.numerique.gouv.fr>",
   "license": "CC-BY-NC-SA-3.0",
-  "version": "DINUM-VERNUM",
+  "version": "0.0.2",
   "description": "open-xchange plugins for suite numerique",
   "scripts": {
     "msgmerge": "for i in i18n/*.po; do msgmerge -Us --previous --backup=none \"$i\" i18n/ox.pot; done"
