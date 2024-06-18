@@ -35,8 +35,7 @@ build_package:
     entrypoint: [""]
   script:
     - cd src
-    - npm install
-    - grunt dpkg-buildpackage --include-dependencies
+    - make build 
   artifacts:
     paths:
       - src/dist/dimail-ui_*_all.deb
