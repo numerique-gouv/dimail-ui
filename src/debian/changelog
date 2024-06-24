@@ -1,3 +1,9 @@
+dimail-ui (0.0.5-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Éléonore Voisin <eleonore.voisin@mail.numerique.gouv.fr>  Mon, 24 Jun 2024 14:45:00 +0000
+
 dimail-ui (0.0.4-1) unstable; urgency=low
 
   * Initial Release.
