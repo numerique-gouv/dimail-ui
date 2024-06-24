@@ -61,7 +61,8 @@ define('fr.dinum/create-webconf/register', ['io.ox/core/extensions'], function (
                     .on('click', function (e) {
                         e.stopPropagation();
                         var target =  $(document).find('.form-control[name="location"]');
-                        target.val(url);
+                        target.val('Lien vers la webconf : ' + url);
+                        target.focus();
                     })
                     )
             );
