@@ -31,29 +31,41 @@
 #io-ox-appcontrol #io-ox-toprightbar .launcher>a,
 #io-ox-appcontrol #io-ox-topleftbar .launcher>a,
 #io-ox-appcontrol #io-ox-toprightbar .launcher>a {
-    color: @blue;
+    color: #000091;
     &:hover, &:focus {
-    	color: @blue-light;
-    	background-color: #fff;
+        color: #1212ff;
+        background-color: #fff;
     }
 }
 
 #io-ox-appcontrol #io-ox-toprightbar .launcher .fasvg text,
 #io-ox-appcontrol #io-ox-topleftbar .launcher>a svg,
 #io-ox-appcontrol #io-ox-topleftbar .launcher .fasvg text {
-    fill: @blue;
+    fill: #000091;
     &:hover, &:focus {
-    	fill: @blue-light;
-    	background-color: #fff;
+        fill: #1212ff;
+        background-color: #fff;
+    }
+}
+
+.dropdown-menu>li>a:focus, .dropdown-menu>[role=group]>li>a:focus {
+    color: #000;
+    background: #f6f6f6;
+    .title {
+        color: #000 !important;
     }
 }
 
 #io-ox-appcontrol {
-	border-bottom: 1px solid rgba(0, 0, 0, .04);
+    border-bottom: 1px solid rgba(0, 0, 0, .04);
 }
 
 .visible-selection.has-focus .list-item.selected *,
 .list-view.visible-selection .list-item.selected {
-	color: #000 !important;
-	background-color: #f6f6f6; /* grey-975 */
+    color: #000 !important;
+    background-color: #f6f6f6; /* grey-975 */
+}
+
+.list-view.visible-selection.has-focus .list-item.selected:focus, .list-view.visible-selection.has-focus .list-item.selected:focus:hover {
+    background-color: #f6f6f6;
 }
