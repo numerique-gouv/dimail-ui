@@ -48,8 +48,6 @@ define('fr.dinum/create-webconf/register', ['io.ox/core/extensions'], function (
         return shuffle(roomName.split('')).join('');
     }
 
-    var url = 'https://webconf.numerique.gouv.fr/' + generateRoomName();
-
     ext.point('io.ox/calendar/edit/section').extend({
         id: 'create-webconf',
         index: 310,
@@ -59,6 +57,7 @@ define('fr.dinum/create-webconf/register', ['io.ox/core/extensions'], function (
                     .append($('<button type="button" class="btn btn-link mb-4" data-action="create-webconf">')
                     .text('Créer un lien webconf')
                     .on('click', function (e) {
+                        var url = 'https://webconf.numerique.gouv.fr/' + generateRoomName();
                         e.stopPropagation();
                         var target =  $(document).find('.form-control[name="location"]');
                         target.val('Lien vers la webconf : ' + url);
