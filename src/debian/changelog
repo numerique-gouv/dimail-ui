@@ -1,3 +1,9 @@
+dimail-ui (0.0.10-1) unstable; urgency=low
+
+  * Plugin : create-event modify default form
+
+ -- Éléonore Voisin <eleonore.voisin@mail.numerique.gouv.fr>  Wed, 24 Jul 2024 10:24:00 +0000
+
 dimail-ui (0.0.9-1) unstable; urgency=low
 
   * Initial Release.
